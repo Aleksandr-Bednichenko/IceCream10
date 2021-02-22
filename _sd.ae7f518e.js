@@ -117,119 +117,16 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"sass/main.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\images\\products\\product1.png":[["product1.c41d1415.png","images/products/product1.png"],"images/products/product1.png"],"./..\\images\\products\\product1x2.png":[["product1x2.4bf99676.png","images/products/product1x2.png"],"images/products/product1x2.png"],"./..\\images\\products\\product2.png":[["product2.91372433.png","images/products/product2.png"],"images/products/product2.png"],"./..\\images\\products\\product2x2.png":[["product2x2.0b4b0a51.png","images/products/product2x2.png"],"images/products/product2x2.png"],"./..\\images\\products\\product3.png":[["product3.59e66af6.png","images/products/product3.png"],"images/products/product3.png"],"./..\\images\\products\\product3x2.png":[["product3x2.baa72e34.png","images/products/product3x2.png"],"images/products/product3x2.png"],"./..\\images\\products\\dots.svg":[["dots.08c47106.svg","images/products/dots.svg"],"images/products/dots.svg"],"./..\\images\\products\\arrow-right.png":[["arrow-right.43fe967f.png","images/products/arrow-right.png"],"images/products/arrow-right.png"],"./..\\images\\products\\arrow-rightx2.png":[["arrow-rightx2.4ba5e216.png","images/products/arrow-rightx2.png"],"images/products/arrow-rightx2.png"],"./..\\images\\advantages\\icon-milk.png":[["icon-milk.2f7ad634.png","images/advantages/icon-milk.png"],"images/advantages/icon-milk.png"],"./..\\images\\advantages\\icon-apples.png":[["icon-apples.7a6a7f24.png","images/advantages/icon-apples.png"],"images/advantages/icon-apples.png"],"./..\\images\\advantages\\icon-icecream.png":[["icon-icecream.f1c74b89.png","images/advantages/icon-icecream.png"],"images/advantages/icon-icecream.png"],"./..\\images\\advantages\\icon-milk@2x.png":[["icon-milk@2x.da0a9131.png","images/advantages/icon-milk@2x.png"],"images/advantages/icon-milk@2x.png"],"./..\\images\\advantages\\icon-apples@2x.png":[["icon-apples@2x.0f104d6a.png","images/advantages/icon-apples@2x.png"],"images/advantages/icon-apples@2x.png"],"./..\\images\\advantages\\icon-icecream@2x.png":[["icon-icecream@2x.f6e78263.png","images/advantages/icon-icecream@2x.png"],"images/advantages/icon-icecream@2x.png"],"./..\\images\\customers-section\\icon-semicolon.svg":[["icon-semicolon.23dfa828.svg","images/customers-section/icon-semicolon.svg"],"images/customers-section/icon-semicolon.svg"],"./..\\images\\customers-section\\icon-dots.svg":[["icon-dots.c97d14bb.svg","images/customers-section/icon-dots.svg"],"images/customers-section/icon-dots.svg"],"./..\\images\\desktop\\cards\\sectionbgcards.png":[["sectionbgcards.f7d3e6a5.png","images/desktop/cards/sectionbgcards.png"],"images/desktop/cards/sectionbgcards.png"],"./..\\images\\desktop\\cards\\sectionbgcards@2x.png":[["sectionbgcards@2x.072b8a0b.png","images/desktop/cards/sectionbgcards@2x.png"],"images/desktop/cards/sectionbgcards@2x.png"],"C:\\Users\\user\\Documents\\GitHub\\IceCream10\\src\\images\\about\\mobile\\sectionbg1.png":[["sectionbg1.e6dd4e96.png","images/about/mobile/sectionbg1.png"],"images/about/mobile/sectionbg1.png"],"C:\\Users\\user\\Documents\\GitHub\\IceCream10\\src\\images\\about\\mobile\\sectionbg1@2x.png":[["sectionbg1@2x.9b16eb57.png","images/about/mobile/sectionbg1@2x.png"],"images/about/mobile/sectionbg1@2x.png"],"C:\\Users\\user\\Documents\\GitHub\\IceCream10\\src\\images\\about\\desktop\\sectionbg1.png":[["sectionbg1.015412c1.png","images/about/desktop/sectionbg1.png"],"images/about/desktop/sectionbg1.png"],"C:\\Users\\user\\Documents\\GitHub\\IceCream10\\src\\images\\about\\desktop\\sectionbg1@2x.png":[["sectionbg1@2x.1c1dbe95.png","images/about/desktop/sectionbg1@2x.png"],"images/about/desktop/sectionbg1@2x.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/burger.js":[function(require,module,exports) {
-(function () {
-  var menuBtnRef = document.querySelector("[data-menu-batton]");
-  var mobileMenuRef = document.querySelector("[data-menu]");
-  menuBtnRef.addEventListener("click", function () {
-    var expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false;
-    menuBtnRef.classList.toggle("is-active");
-    menuBtnRef.setAttribute("aria-expanded", !expanded);
-    mobileMenuRef.classList.toggle("is-open");
-  });
-})();
-},{}],"js/back-to-top.js":[function(require,module,exports) {
-function backToTop() {
-  var _this = this;
-
-  var button = $('.back-to-top');
-  $(window).on('scroll', function () {
-    if ($(_this).scrollTop() >= 50) {
-      button.fadeIn();
-    } else {
-      button.fadeOut();
-    }
-  });
-  button.on('click', function (e) {
-    e.preventDefault();
-    $('html').animate({
-      scrollTop: 0
-    }, 1000);
-  });
-}
-
-backToTop();
-},{}],"index.js":[function(require,module,exports) {
-"use strict";
-
-require("./sass/main.scss");
-
-require("./js/burger");
-
-require("./js/back-to-top");
-},{"./sass/main.scss":"sass/main.scss","./js/burger":"js/burger.js","./js/back-to-top":"js/back-to-top.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})({"js/_sd.js":[function(require,module,exports) {
+$("a.scrollto").click(function () {
+  var elementClick = $(this).attr("href");
+  var destination = $(elementClick).offset().top;
+  jQuery("html:not(:animated),body:not(:animated)").animate({
+    scrollTop: destination
+  }, 500);
+  return false;
+});
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -257,7 +154,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51431" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51285" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -433,5 +330,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/_sd.js"], null)
+//# sourceMappingURL=/_sd.ae7f518e.js.map
