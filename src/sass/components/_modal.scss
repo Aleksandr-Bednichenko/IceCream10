@@ -21,7 +21,6 @@
 }
 
 .modal {
-   
     position: absolute;
     top:320px;
     left: 50%;
@@ -35,14 +34,7 @@
     border-radius: 4px;
     transform: translate(-50%, -50%) scale(1);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    // @media screen and(min-width:$tablet){
-    //     top:513px; 
-    // }
-    // @media screen and(min-width:$desktop){
-    //     top:528px; 
-    //     width: 528px;
-    //     height: 581px;
-    // }
+
 }
 
 .modal-butten {
