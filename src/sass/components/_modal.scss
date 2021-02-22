@@ -23,12 +23,12 @@
 .modal {
    
     position: absolute;
-    top:50vh;
+    top:320px;
     left: 50%;
     display: flex;
-    width: 450px;
-    height: 609px;
-    padding: 40px;
+    width: 360px;
+    height: 550px;
+    padding: 10px;
     background-color:#FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
       0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -53,14 +53,14 @@
     align-items: center;
     width: 30px;
     height: 30px;
-    background: getColor('white-color');
+    background: $accent-color;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     cursor: pointer;
     outline: none;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover {
-        fill: getColor('accent-color');
+        fill: #FFFFFF;
     }
 }
 
@@ -68,14 +68,14 @@
     padding: 0;
     width: 200px;
     height: 50px;
-    left: 700px;
-    top: 430px;
+    // left: 600px;
+    // top: 430px;
     font-weight: bold;
     font-size: 16px;
     line-height: 1.8;
     letter-spacing: 0.06em;
-    background-color: getColor('accent-color');
-    color: getColor('white-color');
+    background-color: $accent-color;
+    color: $section-odd-color;
     border-radius: 4px;
     border: 0;
     cursor: pointer;
@@ -92,10 +92,11 @@
     transform: translate(-50%, -50%);
     width: 18px;
     height: 18px;
+    fill:#FFFFFF
 }
 
 .modal-h {
-    width: 370px;
+    width: 320px;
     height: 40px;
     margin-bottom: 12px;
     font-style: normal;
@@ -104,7 +105,7 @@
     line-height: 23px;
     text-align: center;
     letter-spacing: 0.03em;
-    color: getColor('title-text-color');
+    color: $accent-color;
     // @media screen and(min-width:$desktop){
     //     width: auto;
     //     height: auto;
@@ -116,7 +117,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-    width: 370px;
+    width: 340px;
     // @media screen and(min-width:$desktop){
     //     width: 448px;
     // }
@@ -129,19 +130,19 @@ label {
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.01em;
-    color: #757575;
+    color: $accent-color;
 }
 
 input {
     padding-top: 12px;
     padding-bottom: 12px;
     padding-left: 34px;
-    border: 1px solid getColor('primeri-text-color');
+    border: 1px solid $hero-background;
     border-radius: 4px;
     color: getColor('primeri-text-color');
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover, &:focus{
-        border: 1px solid getColor('accent-color');
+        border: 1px solid $accent-color;
         outline: none; 
     }
     // @media screen and(min-width:$desktop){
@@ -151,15 +152,15 @@ input {
 }
 
 textarea {
-    width: 370px;
+    width: 340px;
     height: 120px;
     padding: 12px 16px;
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     resize: none;
-    border: 1px solid getColor('primeri-text-color');
+    border: 1px solid $accent-pale-color;
     border-radius: 4px;
-    color: getColor('primeri-text-color');
+    color: $accent-color;
     &:focus, &:hover {
         outline: none;
     }
@@ -181,11 +182,12 @@ textarea {
     cursor: pointer;
     &:hover + .moda-svg,
     &:focus + .moda-svg{
-        fill: red;
+        fill: $accent-color;
     }
 }
 
 .moda-svg {
+    fill:$accent-pale-color ;
     position: absolute;
     width: 16px;
     height: 14px;
@@ -196,8 +198,8 @@ textarea {
 }
 
 .modal-form button {
-    margin-top: 30px;
-    margin-left: 85px;
+    margin-top: 20px;
+    margin-left: 75px;
     // @media screen and(min-width:$desktop){
     //     margin-left: 124px;
     // }  
@@ -210,7 +212,7 @@ textarea {
     height: 1px;
     margin: -1px;
     &:checked + .checkbox-icon {
-        background-color: #2196f3;
+        background-color: $accent-color;
         border-color: transparent;
         background-image: url("../images/check.svg");
         background-size: contain;
@@ -221,7 +223,7 @@ textarea {
 }
 
 .checkbox {
-    width: 450px;
+    width: 350px;
     display: flex;
     align-items: center;
     // @media screen and(min-width:$desktop){
@@ -234,10 +236,10 @@ textarea {
 .checkbox-text {
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 24px;
   letter-spacing: 0.03em;
-  color: getColor('primeri-text-color');
+  color: $accent-color;
     // @media screen and(min-width:$desktop){
     //     font-size: 14px;
         
@@ -247,12 +249,12 @@ textarea {
 .checkbox-a {
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 24px;
   letter-spacing: 0.03em;
   margin-left: 5px;
   text-decoration: underline;
-  color: getColor('accent-color');
+  color: $accent-color;
 //   @media screen and(min-width:$desktop){
 //     font-size: 14px;
 //   }
@@ -263,5 +265,5 @@ textarea {
     width: 16px;
     height: 15px;
     margin-right: 7px;
-    border: 2px solid #212121;
+    border: 2px solid $accent-color;
 }
